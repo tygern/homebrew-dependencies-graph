@@ -1,4 +1,4 @@
-require "dependencies_graph"
+require "dependencies"
 
 describe "dotfile" do
   it "creates a dotfile" do
@@ -20,9 +20,8 @@ digraph D {
 }
     EXP
 
-    result = DependenciesGraph::dependencies_to_dotfile(dependencies)
+    result = Dependencies::brew_to_dotfile(dependencies)
 
     expect(result).to eq(expected_result)
-
   end
 end
