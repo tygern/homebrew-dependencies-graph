@@ -11,7 +11,7 @@ Homebrew command to view a dot graph of your homebrew dependencies.
     ```
 
 1.  Output a dotfile of your dependencies to the shell with the
-`dependencies-graph` command.
+    `dependencies-graph` command.
 
     ```bash
     brew dependencies-graph
