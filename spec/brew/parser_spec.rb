@@ -1,8 +1,8 @@
-require "dependencies"
+require "dg"
 
 describe "parser" do
   before do
-    @parser = Dependencies::Brew::Parser.new
+    @parser = DG::Brew::Parser.new
   end
 
   it "parses lines with no dependencies" do
@@ -11,7 +11,7 @@ describe "parser" do
     result = @parser.create_graph(dependencies)
 
     expect(result)
-        .to eq(Dependencies::Graph::Graph.new([Dependencies::Graph::Relation.new("autoconf")].to_set))
+        .to eq(DG::Graph::Graph.new([DG::Graph::Relation.new("autoconf")].to_set))
   end
 
   it "parses lines with a newline" do
@@ -20,7 +20,7 @@ describe "parser" do
     result = @parser.create_graph(dependencies)
 
     expect(result)
-        .to eq(Dependencies::Graph::Graph.new([Dependencies::Graph::Relation.new("autoconf")].to_set))
+        .to eq(DG::Graph::Graph.new([DG::Graph::Relation.new("autoconf")].to_set))
   end
 
   it "parses lines with one dependency" do
@@ -29,9 +29,9 @@ describe "parser" do
     result = @parser.create_graph(dependencies)
 
     expect(result)
-        .to eq(Dependencies::Graph::Graph.new([
-                                                  Dependencies::Graph::Relation.new("autoconf"),
-                                                  Dependencies::Graph::Relation.new("autoconf", "something")
+        .to eq(DG::Graph::Graph.new([
+                                        DG::Graph::Relation.new("autoconf"),
+                                        DG::Graph::Relation.new("autoconf", "something")
                                               ].to_set))
   end
 
@@ -41,12 +41,12 @@ describe "parser" do
     result = @parser.create_graph(dependencies)
 
     expect(result)
-        .to eq(Dependencies::Graph::Graph
+        .to eq(DG::Graph::Graph
                    .new([
-                            Dependencies::Graph::Relation.new("autoconf"),
-                            Dependencies::Graph::Relation.new("autoconf", "something"),
-                            Dependencies::Graph::Relation.new("autoconf", "another"),
-                            Dependencies::Graph::Relation.new("autoconf", "andanother"),
+                            DG::Graph::Relation.new("autoconf"),
+                            DG::Graph::Relation.new("autoconf", "something"),
+                            DG::Graph::Relation.new("autoconf", "another"),
+                            DG::Graph::Relation.new("autoconf", "andanother"),
                         ].to_set))
   end
 
@@ -59,14 +59,14 @@ turtle: chicken
     result = @parser.create_graph(dependencies)
 
     expect(result)
-        .to eq(Dependencies::Graph::Graph
+        .to eq(DG::Graph::Graph
                    .new([
-                            Dependencies::Graph::Relation.new("autoconf"),
-                            Dependencies::Graph::Relation.new("autoconf", "something"),
-                            Dependencies::Graph::Relation.new("autoconf", "another"),
-                            Dependencies::Graph::Relation.new("autoconf", "andanother"),
-                            Dependencies::Graph::Relation.new("turtle"),
-                            Dependencies::Graph::Relation.new("turtle", "chicken"),
+                            DG::Graph::Relation.new("autoconf"),
+                            DG::Graph::Relation.new("autoconf", "something"),
+                            DG::Graph::Relation.new("autoconf", "another"),
+                            DG::Graph::Relation.new("autoconf", "andanother"),
+                            DG::Graph::Relation.new("turtle"),
+                            DG::Graph::Relation.new("turtle", "chicken"),
                         ].to_set))
   end
 end

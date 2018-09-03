@@ -1,4 +1,4 @@
-module Dependencies::Brew
+module DG::Brew
   def self.dependencies
     `brew deps --installed`
   end

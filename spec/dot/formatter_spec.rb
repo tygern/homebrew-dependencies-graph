@@ -1,23 +1,23 @@
-require "dependencies"
+require "dg"
 
 describe "formatter" do
   it "formats a dotfile" do
-    graph = Dependencies::Graph::Graph
+    graph = DG::Graph::Graph
                 .new([
-                         Dependencies::Graph::Relation.new("autoconf", "something"),
-                         Dependencies::Graph::Relation.new("autoconf", "another"),
-                         Dependencies::Graph::Relation.new("turtle"),
+                         DG::Graph::Relation.new("autoconf", "something"),
+                         DG::Graph::Relation.new("autoconf", "another"),
+                         DG::Graph::Relation.new("turtle"),
                      ].to_set)
 
     expected_result = <<-EXP
 digraph D {
     "autoconf" -> "something";
     "autoconf" -> "another";
-    "turtle";
+    "turtle" [fontcolor=white,style=filled,color=darkslategray];
 }
     EXP
 
-    result = Dependencies::Dot::format(graph)
+    result = DG::Dot::format(graph)
 
     expect(result).to eq(expected_result)
   end

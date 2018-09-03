@@ -1,4 +1,4 @@
-module Dependencies::Graph
+module DG::Graph
   class Relation
     attr_reader :formula, :dependency
 

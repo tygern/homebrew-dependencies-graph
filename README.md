@@ -1,4 +1,4 @@
-# Homebrew Dependencies Graph
+# Homebrew DG Graph
 
 Homebrew command to view a dot graph of your homebrew dependencies.
 
@@ -35,3 +35,5 @@ View the graph in a nicer format with [Graphviz](https://www.graphviz.org/).
     ```bash
     brew dependencies-graph | dot -Tpng -o graph.png
     ```
+
+    The leaves are shown in dark gray.

@@ -1,4 +1,4 @@
-require "dependencies"
+require "dg"
 
 describe "dotfile" do
   it "creates a dotfile" do
@@ -12,17 +12,17 @@ gd: fontconfig freetype jpeg
     expected_result = <<-EXP
 digraph D {
     "autoconf";
-    "automake";
+    "automake" [fontcolor=white,style=filled,color=darkslategray];
     "automake" -> "autoconf";
-    "bison";
-    "gd";
+    "bison" [fontcolor=white,style=filled,color=darkslategray];
+    "gd" [fontcolor=white,style=filled,color=darkslategray];
     "gd" -> "fontconfig";
     "gd" -> "freetype";
     "gd" -> "jpeg";
 }
     EXP
 
-    result = Dependencies::brew_to_dotfile(dependencies)
+    result = DG::brew_to_dotfile(dependencies)
 
     expect(result).to eq(expected_result)
   end

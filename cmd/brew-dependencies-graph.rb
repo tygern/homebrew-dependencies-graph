@@ -2,6 +2,6 @@ BREW_GEM_HOME = File.expand_path("../..", __FILE__)
 
 $LOAD_PATH.unshift(File.join(BREW_GEM_HOME, "lib"))
 
-require "dependencies"
+require "dg"
 
-Dependencies::run
+DG::Cli.run
