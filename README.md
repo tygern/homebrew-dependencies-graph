@@ -7,7 +7,7 @@ Homebrew command to view a dot graph of your homebrew dependencies.
 1.  Install the command by tapping the repo.
 
     ```bash
-    brew tap tygern/homebrew-dependencies-graph
+    brew tap tygern/dependencies-graph
     ```
 
 1.  Output a dotfile of your dependencies to the shell with the
