@@ -14,7 +14,7 @@ module Dependencies::Dot
     if relation.dependency.nil?
       "    \"#{relation.formula}\";\n"
     else
-      "    \"#{relation.formula}\" -> #{relation.dependency};\n"
+      "    \"#{relation.formula}\" -> \"#{relation.dependency}\";\n"
     end
   end
 end

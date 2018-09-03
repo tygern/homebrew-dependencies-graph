@@ -29,7 +29,10 @@ describe "parser" do
     result = @parser.create_graph(dependencies)
 
     expect(result)
-        .to eq(Dependencies::Graph::Graph.new([Dependencies::Graph::Relation.new("autoconf", "something")].to_set))
+        .to eq(Dependencies::Graph::Graph.new([
+                                                  Dependencies::Graph::Relation.new("autoconf"),
+                                                  Dependencies::Graph::Relation.new("autoconf", "something")
+                                              ].to_set))
   end
 
   it "parses lines with many" do
@@ -40,6 +43,7 @@ describe "parser" do
     expect(result)
         .to eq(Dependencies::Graph::Graph
                    .new([
+                            Dependencies::Graph::Relation.new("autoconf"),
                             Dependencies::Graph::Relation.new("autoconf", "something"),
                             Dependencies::Graph::Relation.new("autoconf", "another"),
                             Dependencies::Graph::Relation.new("autoconf", "andanother"),
@@ -57,9 +61,11 @@ turtle: chicken
     expect(result)
         .to eq(Dependencies::Graph::Graph
                    .new([
+                            Dependencies::Graph::Relation.new("autoconf"),
                             Dependencies::Graph::Relation.new("autoconf", "something"),
                             Dependencies::Graph::Relation.new("autoconf", "another"),
                             Dependencies::Graph::Relation.new("autoconf", "andanother"),
+                            Dependencies::Graph::Relation.new("turtle"),
                             Dependencies::Graph::Relation.new("turtle", "chicken"),
                         ].to_set))
   end

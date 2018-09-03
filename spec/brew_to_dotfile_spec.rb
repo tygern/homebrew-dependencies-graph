@@ -12,11 +12,13 @@ gd: fontconfig freetype jpeg
     expected_result = <<-EXP
 digraph D {
     "autoconf";
-    "automake" -> autoconf;
+    "automake";
+    "automake" -> "autoconf";
     "bison";
-    "gd" -> fontconfig;
-    "gd" -> freetype;
-    "gd" -> jpeg;
+    "gd";
+    "gd" -> "fontconfig";
+    "gd" -> "freetype";
+    "gd" -> "jpeg";
 }
     EXP
 

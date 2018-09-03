@@ -13,13 +13,15 @@ module Dependencies::Brew
 
       dep_array = split_dependencies(deps)
 
-      if dep_array.empty?
-        [Dependencies::Graph::Relation.new(main)]
-      else
-        dep_array.map do |dep|
-          Dependencies::Graph::Relation.new(main, dep)
+      result = [Dependencies::Graph::Relation.new(main)]
+
+      unless dep_array.empty?
+        dep_array.each do |dep|
+          result << Dependencies::Graph::Relation.new(main, dep)
         end
       end
+
+      result
     end
 
     def split_dependencies(deps)

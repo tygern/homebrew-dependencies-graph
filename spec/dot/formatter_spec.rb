@@ -11,8 +11,8 @@ describe "formatter" do
 
     expected_result = <<-EXP
 digraph D {
-    "autoconf" -> something;
-    "autoconf" -> another;
+    "autoconf" -> "something";
+    "autoconf" -> "another";
     "turtle";
 }
     EXP
