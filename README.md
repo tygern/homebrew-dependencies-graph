@@ -1,4 +1,4 @@
-# Homebrew DG Graph
+# Homebrew Dependencies Graph
 
 Homebrew command to view a dot graph of your homebrew dependencies.
 
