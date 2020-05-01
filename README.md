@@ -33,7 +33,7 @@ View the graph in a nicer format with [Graphviz](https://www.graphviz.org/).
 1.  Use Graphviz to generate a png dependency graph.
 
     ```bash
-    brew dependencies-graph | dot -Tpng -o graph.png
+    brew dependencies-graph | dot -Tpng | open -a Preview.app -f
     ```
 
     The leaves are shown in dark gray.
